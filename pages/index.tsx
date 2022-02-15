@@ -1,13 +1,11 @@
-import PageTabs from "../components/molecules/PageTabs";
 import HeaderNav from "../components/organisms/HeaderNav";
 import PageSection from "../components/organisms/PageSection";
 
 const IndexPage = () => {
   return (
-    <div>
+    <div className="Dashboard">
       <HeaderNav />
       <PageSection />
-      <PageTabs />
     </div>
   );
 };
