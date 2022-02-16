@@ -2,9 +2,15 @@
 
 @tailwind base;
 @tailwind components;
+@import "../public/fonts/fellix/fellix-font.css";
 
 body {
   @apply bg-[#F9F9F9] overflow-hidden h-screen w-screen;
+  font-family: "Fellix", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .Dashboard {
