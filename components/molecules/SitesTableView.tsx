@@ -69,7 +69,10 @@ const SitesTableView = () => {
         onSelect={(selectedIds: any) => setSelectedSites(selectedIds)}
       />
       {modal.type === "delete" && modal.open && (
-        <DeleteSiteModal close={() => setModal({ ...modal, open: false })} onClick />
+        <DeleteSiteModal
+          close={() => setModal({ ...modal, open: false })}
+          onClick={() => {}}
+        />
       )}
       {modal.type === "edit" && modal.open && (
         <EditSiteModal close={() => setModal({ ...modal, open: false })} />
