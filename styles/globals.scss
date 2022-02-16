@@ -2,7 +2,7 @@
 
 @tailwind base;
 @tailwind components;
-@import "../public/fonts/fellix/fellix-font.css";
+@import "/fonts/fellix/fellix-font.css";
 
 body {
   @apply bg-[#F9F9F9] overflow-hidden h-screen w-screen;
