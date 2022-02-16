@@ -3,10 +3,15 @@ import Button from "../atoms/Button";
 import BinIcon from "../atoms/vectors/BinIcon";
 import Modal from "../molecules/Modal";
 interface PropTypes {
+  site: any;
   close: Function;
   onClick: Function;
 }
-const DeleteSiteModal = ({ close = () => {}, onClick = () => {} }: PropTypes) => {
+const DeleteSiteModal = ({
+  close = () => {},
+  onClick = () => {},
+  site,
+}: PropTypes) => {
   return (
     <Modal width="w-96" close={close} showCloseBtn={false}>
       <div>
@@ -30,7 +35,12 @@ const DeleteSiteModal = ({ close = () => {}, onClick = () => {} }: PropTypes) =>
             customClasses="text-dark text-opacity-[52%] bg-grey2 border-none"
             onClick={close}
           />
-          <Button text="Delete Site" size="small" customClasses="bg-danger" />
+          <Button
+            text="Delete Site"
+            size="small"
+            customClasses="bg-danger"
+            onClick={(e) => onClick(site._id)}
+          />
         </div>
       </div>
     </Modal>

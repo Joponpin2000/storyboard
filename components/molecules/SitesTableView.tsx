@@ -10,13 +10,16 @@ const SitesTableView = () => {
     { name: "Admin", key: "admin" },
     { name: "Creation Date & Time", key: "creation" },
   ];
-  const tableData = Array(10).fill({
-    siteName: "Qualtrak",
-
-    admin: "Adelowomi Issac",
-    creation: "02/05/2021 5:29pm",
-    _id: Math.random().toString(),
-  });
+  const [tableData, setTableData] = useState<any[]>(
+    Array(2)
+      .fill({
+        siteName: "Qualtrak",
+        admin: "Adelowomi Issac",
+        creation: "02/05/2021 5:29pm",
+        _id: Math.random().toString(),
+      })
+      .map((data) => ({ ...data, _id: Math.random().toString() }))
+  );
   const [selectedRow, setSelectedRow] = useState(null);
   const [selectedSites, setSelectedSites] = useState<any[]>([]);
   type modalTypes = "delete" | "edit";
@@ -33,6 +36,11 @@ const SitesTableView = () => {
     if (action === "edit") {
       setModal({ type: "edit", open: true });
     }
+  };
+
+  const handleDelete = (id: string) => {
+    setTableData(tableData.filter((data) => data._id !== id));
+    setModal({ ...modal, open: false });
   };
   return (
     <>
@@ -70,8 +78,9 @@ const SitesTableView = () => {
       />
       {modal.type === "delete" && modal.open && (
         <DeleteSiteModal
+          site={selectedRow}
           close={() => setModal({ ...modal, open: false })}
-          onClick={() => {}}
+          onClick={(id: string) => handleDelete(id)}
         />
       )}
       {modal.type === "edit" && modal.open && (
