@@ -3,23 +3,12 @@ import Button from "../atoms/Button";
 import Table from "../organisms/Table";
 import DeleteSiteModal from "../organisms/DeleteSiteModal";
 import EditSiteModal from "../organisms/EditSiteModal";
-
-const SitesTableView = () => {
-  const tableHeadings = [
-    { name: "Site Name", key: "siteName", customClass: "underline" },
-    { name: "Admin", key: "admin" },
-    { name: "Creation Date & Time", key: "creation" },
-  ];
-  const [tableData, setTableData] = useState<any[]>(
-    Array(2)
-      .fill({
-        siteName: "Qualtrak",
-        admin: "Adelowomi Issac",
-        creation: "02/05/2021 5:29pm",
-        _id: Math.random().toString(),
-      })
-      .map((data) => ({ ...data, _id: Math.random().toString() }))
-  );
+interface PropTypes {
+  tableData: any;
+  setTableData: Function;
+  tableHeadings: any;
+}
+const SitesTableView = ({tableData, setTableData, tableHeadings}: PropTypes) => {
   const [selectedRow, setSelectedRow] = useState(null);
   const [selectedSites, setSelectedSites] = useState<any[]>([]);
   type modalTypes = "delete" | "edit";

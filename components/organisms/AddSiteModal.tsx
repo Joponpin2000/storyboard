@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FormEvent, useState } from "react";
 import Button from "../atoms/Button";
 import Input from "../atoms/Input";
 import AttachmentIcon from "../atoms/vectors/AttachmentIcon";
@@ -7,8 +7,31 @@ import Modal from "../molecules/Modal";
 
 interface PropTypes {
   close: Function;
+  tableData: any;
+  setTableData: Function;
 }
-const AddSiteModal = ({ close = () => {} }: PropTypes) => {
+const AddSiteModal = ({
+  close = () => {},
+  tableData = [],
+  setTableData = () => {},
+}: PropTypes) => {
+  const [form, setForm] = useState({
+    siteName: "",
+    admin: "Adelowomi Issac",
+    creation: "02/05/2021 5:29pm",
+    _id: Math.random().toString(),
+  });
+  const updateField = (field: "siteName", value: string) => {
+    setForm({
+      ...form,
+      [field]: value,
+    });
+  };
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setTableData([...tableData, form]);
+    close();
+  };
   return (
     <Modal close={close}>
       <div className="mt-3">
@@ -16,8 +39,12 @@ const AddSiteModal = ({ close = () => {} }: PropTypes) => {
           <h3 className="font-semibold text-2xl text-dark mb-8">
             Add New Site
           </h3>
-          <form className="space-y-6">
-            <Input label="Site Name" />
+          <form className="space-y-6" onSubmit={onSubmit}>
+            <Input
+              label="Site Name"
+              value={form.siteName}
+              onChange={(e: any) => updateField("siteName", e.target.value)}
+            />
             <Input label="Description" />
             <div>
               <p className="text-dark text-opacity-[72%] mb-4">
@@ -33,16 +60,16 @@ const AddSiteModal = ({ close = () => {} }: PropTypes) => {
                 <TickIcon />
               </div>
             </div>
+            <div className="flex items-center justify-between pt-14 space-x-6">
+              <Button
+                text="Cancel"
+                size="small"
+                customClasses="text-dark text-opacity-[52%] bg-grey2 border-none"
+                onClick={close}
+              />
+              <Button text="Add New Site" size="small" />
+            </div>
           </form>
-        </div>
-        <div className="flex items-center justify-between mt-14 space-x-6">
-          <Button
-            text="Cancel"
-            size="small"
-            customClasses="text-dark text-opacity-[52%] bg-grey2 border-none"
-            onClick={close}
-          />
-          <Button text="Add New Site" size="small" />
         </div>
       </div>
     </Modal>

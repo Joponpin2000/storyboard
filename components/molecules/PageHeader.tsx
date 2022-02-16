@@ -4,7 +4,11 @@ import AddIcon from "../atoms/vectors/AddIcon";
 import SearchInput from "../atoms/SearchInput";
 import AddSiteModal from "../organisms/AddSiteModal";
 
-const PageHeader = () => {
+interface PropTypes {
+  setTableData: Function;
+  tableData: any
+}
+const PageHeader = ({ setTableData = () => {}, tableData  = []}: PropTypes) => {
   type modalTypes = "add";
   const [modal, setModal] = useState<{ type: modalTypes; open: boolean }>({
     type: "add",
@@ -28,7 +32,11 @@ const PageHeader = () => {
       </div>
 
       {modal.type === "add" && modal.open && (
-        <AddSiteModal close={() => setModal({ ...modal, open: false })} />
+        <AddSiteModal
+          {...{ tableData }}
+          {...{ setTableData }}
+          close={() => setModal({ ...modal, open: false })}
+        />
       )}
     </>
   );
