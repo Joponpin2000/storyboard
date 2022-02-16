@@ -1,5 +1,6 @@
 import React, { Fragment, ReactElement, useEffect, useState } from "react";
 import CheckBox from "../atoms/CheckBox";
+import CaretDownIcon from "../atoms/vectors/CaretDownIcon";
 
 interface PropTypes {
   headings: Array<{
@@ -139,10 +140,26 @@ const Table = ({
           </tbody>
         </table>
 
-        <div className="table-footer">
-          <div className="flex items-center space-x-4">Previous</div>
-          <div className="flex items-center space-x-4">Items per page:</div>
-          <div className="flex items-center space-x-4">Next</div>
+        <div className="table-footer text-darkGrey text-opacity-50">
+          <div className="flex items-center space-x-1 cursor-pointer">
+            <div className="rotate-90">
+              <CaretDownIcon />
+            </div>
+            <p>Previous</p>
+          </div>
+          <div className="flex items-center space-x-2">
+            <p> Items per page:</p>
+            <div className="cursor-pointer flex items-center">
+              <p className="text-primary">10 Items</p>
+              <CaretDownIcon />
+            </div>
+          </div>
+          <div className="flex items-center space-x-1 cursor-pointer">
+            <p>Next</p>
+            <div className="-rotate-90">
+              <CaretDownIcon />
+            </div>
+          </div>
         </div>
       </div>
     </div>
