@@ -35,7 +35,7 @@ const index = ({
         )}
         <div
           // ref={ref}
-          className={`md:max-w-[30rem]  border shadow bg-white rounded z-50 ${
+          className={` border shadow bg-white rounded z-50 ${
             width ? width : "w-[25rem]"
           }`}
         >
