@@ -7,7 +7,7 @@ interface PropTypes {
 }
 const DeleteSiteModal = ({ close = () => {} }: PropTypes) => {
   return (
-    <Modal width="w-[30rem]" close={close} showCloseBtn={false}>
+    <Modal width="w-96" close={close} showCloseBtn={false}>
       <div>
         <div className="flex items-start space-x-6">
           <div className="flex items-center justify-center p-5 bg-red-500 bg-opacity-30 rounded-full">
