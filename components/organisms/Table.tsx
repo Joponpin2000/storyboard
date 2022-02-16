@@ -38,7 +38,7 @@ const Table = ({
   };
 
   return (
-    <div className="w-full py-8 px-[34px] bg-white pb-0 flex-grow h-full overflow-y-auto flex flex-col">
+    <div className="w-full p-8 bg-white pb-0 flex-grow h-full overflow-y-auto flex flex-col">
       <div className="flex-grow overflow-y-hidden flex flex-col">
         <table className="Table">
           <thead className="">
@@ -46,7 +46,9 @@ const Table = ({
               <th className="w-28">
                 <CheckBox
                   onChange={(value: boolean) => toggleSelectAll(value)}
-                  value={selected.length === tableData.length}
+                  value={
+                    tableData.length > 1 && selected.length === tableData.length
+                  }
                 />
               </th>
               {headings.map((heading, headingIndex) => (
@@ -98,7 +100,7 @@ const Table = ({
                     </td>
                   ))}
                   {rowActions?.length ? (
-                    <td className="flex flex-shrink items-center space-x-[25px]">
+                    <td className="flex flex-shrink items-center space-x-6">
                       {rowActions.map((action, actionIndex) => (
                         <div
                           className="cursor-pointer h-10 flex items-center justify-center"
@@ -120,8 +122,23 @@ const Table = ({
                 </tr>
               </Fragment>
             ))}
+            {!tableData.length && (
+              <tr className="border-none mt-40">
+                <td
+                  colSpan={headings?.length + 1}
+                  className="py-6  text-center text-lp-grey2"
+                >
+                  <div className="flex flex-col items-center justify-center">
+                    <p className="text-xs lg:text-base">
+                      All websites created would be displayed here
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
+
         <div className="table-footer">
           <div className="flex items-center space-x-4">Previous</div>
           <div className="flex items-center space-x-4">Items per page:</div>

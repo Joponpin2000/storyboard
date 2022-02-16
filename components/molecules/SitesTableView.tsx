@@ -10,13 +10,13 @@ const SitesTableView = () => {
     { name: "Admin", key: "admin" },
     { name: "Creation Date & Time", key: "creation" },
   ];
-  const tableData = Array(10).fill({
-    siteName: "Qualtrak",
+  // const tableData = Array(10).fill({
+  //   siteName: "Qualtrak",
 
-    admin: "Adelowomi Issac",
-    creation: "02/05/2021 5:29pm",
-  });
-
+  //   admin: "Adelowomi Issac",
+  //   creation: "02/05/2021 5:29pm",
+  // });
+  const tableData = [];
   const [selectedRow, setSelectedRow] = useState(null);
   type modalTypes = "delete" | "edit";
   const [modal, setModal] = useState<{ type: modalTypes; open: boolean }>({
@@ -45,9 +45,9 @@ const SitesTableView = () => {
             element: (
               <Button
                 text="Delete"
-                customClasses="border-darkGrey border-opacity-[24%] text-darkGrey text-opacity-[24%]"
                 size="small"
-                outline
+                variant="secondary"
+                outline={true}
               />
             ),
           },
@@ -62,7 +62,7 @@ const SitesTableView = () => {
         <DeleteSiteModal close={() => setModal({ ...modal, open: false })} />
       )}
       {modal.type === "edit" && modal.open && (
-        <EditSiteModal close={() => setModal({ ...modal, open: false }) } />
+        <EditSiteModal close={() => setModal({ ...modal, open: false })} />
       )}
     </>
   );

@@ -11,6 +11,7 @@ interface PropTypes {
   type?: "submit" | "reset" | "button";
   onClick?: React.DOMAttributes<HTMLButtonElement>["onClick"] | Function;
   outline?: boolean;
+  variant?: "primary" | "secondary";
 }
 const Button = ({
   text,
@@ -23,6 +24,7 @@ const Button = ({
   type = "submit",
   onClick = () => {},
   outline = false,
+  variant = "primary",
 }: PropTypes) => {
   const computedClasses = ["Button text-white bg-primary"];
   if (size === "large") {
@@ -35,8 +37,16 @@ const Button = ({
     );
   }
   if (disabled) computedClasses.push("cursor-not-allowed");
-  if (outline)
-    computedClasses.push("!bg-white border border-primary text-primary");
+  if (outline) {
+    if (variant === "primary") {
+      computedClasses.push("!bg-white border border-primary text-primary");
+    }
+    if (variant === "secondary") {
+      computedClasses.push(
+        "!bg-white border border-darkGrey border-opacity-[24%] text-darkGrey text-opacity-[24%]"
+      );
+    }
+  }
   computedClasses.push(customClasses);
 
   return (

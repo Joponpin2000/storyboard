@@ -48,7 +48,9 @@ const Input = ({
         full && "w-full"
       } ${customClass}`}
     >
-      <label className="mb-2 text-sm lg:text-base font-medium text-dark text-opacity-[72%]">{label}</label>
+      <label className="mb-2 text-sm lg:text-base font-medium text-dark text-opacity-[72%]">
+        {label}
+      </label>
       {!children && (
         <>
           <div className="relative border mt-auto">

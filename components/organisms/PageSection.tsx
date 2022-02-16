@@ -11,7 +11,6 @@ const PageSection = () => {
       <PageHeader />
       <PageTabs options={tabs} {...{ activeTab }} {...{ setActiveTab }} />
       <SitesTableView />
-      
     </div>
   );
 };
