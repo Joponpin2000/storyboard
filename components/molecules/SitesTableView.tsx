@@ -10,13 +10,12 @@ const SitesTableView = () => {
     { name: "Admin", key: "admin" },
     { name: "Creation Date & Time", key: "creation" },
   ];
-  // const tableData = Array(10).fill({
-  //   siteName: "Qualtrak",
+  const tableData = Array(10).fill({
+    siteName: "Qualtrak",
 
-  //   admin: "Adelowomi Issac",
-  //   creation: "02/05/2021 5:29pm",
-  // });
-  const tableData = [];
+    admin: "Adelowomi Issac",
+    creation: "02/05/2021 5:29pm",
+  });
   const [selectedRow, setSelectedRow] = useState(null);
   type modalTypes = "delete" | "edit";
   const [modal, setModal] = useState<{ type: modalTypes; open: boolean }>({
