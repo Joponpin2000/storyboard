@@ -4,7 +4,7 @@
 @tailwind components;
 
 body {
-  @apply bg-[#F9F9F9] overflow-hidden;
+  @apply bg-[#F9F9F9] overflow-hidden h-screen w-screen;
 }
 
 .Dashboard {
