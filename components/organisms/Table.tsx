@@ -38,10 +38,10 @@ const Table = ({
   };
 
   return (
-    <div className="w-full py-8 px-[34px] bg-white pb-0 flex-grow h-full overflow-y-hidden flex flex-col">
-      <div className="flex-grow overflow-auto flex flex-col">
+    <div className="w-full py-8 px-[34px] bg-white pb-0 flex-grow h-full overflow-y-auto flex flex-col">
+      <div className="flex-grow overflow-y-hidden flex flex-col">
         <table className="Table">
-          <thead className="lg:table-header-group">
+          <thead className="">
             <tr>
               <th className="w-28">
                 <CheckBox
@@ -72,7 +72,7 @@ const Table = ({
                   key={`${tableId}_row-${rowIndex}`}
                   className="h-5 relative"
                 >
-                  <td className={""}>
+                  <td className="w-28">
                     <CheckBox
                       value={selected.indexOf(row[selectKey]) !== -1}
                       // value={row.id || row._id || rowIndex}
