@@ -27,7 +27,7 @@ function SearchInput({
     <>
       {label && <label className="mb-2 font-bold text-base op">{label}</label>}
       <form
-        className={`flex items-center max-w-full w-[20rem] px-4 py-[0.625rem] rounded text-sm font-normal bg-grey3 pr-12`}
+        className={`flex items-center max-w-full w-[20rem] px-4 py-3 rounded text-sm font-normal bg-grey3 pr-12`}
         onSubmit={handleSubmit}
       >
         <SearchIcon />

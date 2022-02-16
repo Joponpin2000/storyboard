@@ -64,11 +64,6 @@ const Table = ({
           <tbody>
             {tableData.map((row: any, rowIndex) => (
               <Fragment key={`${tableId}-heading_${rowIndex}`}>
-                <tr className="lg:hidden border-none !p-0">
-                  <td colSpan={headings?.length + 1} className="!p-0 !m-0">
-                    <hr />
-                  </td>
-                </tr>
                 <tr
                   onClick={() => clickRow(row._id || row.id || rowIndex)}
                   key={`${tableId}_row-${rowIndex}`}
@@ -119,6 +114,11 @@ const Table = ({
                       ))}
                     </td>
                   ) : null}
+                </tr>
+                <tr className="lg:hidden border-none !p-0">
+                  <td colSpan={headings?.length + 1} className="!p-0 !m-0">
+                    <hr />
+                  </td>
                 </tr>
               </Fragment>
             ))}

@@ -33,17 +33,19 @@ const Button = ({
     computedClasses.push("font-medium h-10");
   } else {
     computedClasses.push(
-      "font-medium h-10 md:h-10 lg:h-12 text-xs md:text-sm w-[13.25rem]"
+      "font-medium h-10 md:h-10 lg:h-12 text-xs md:text-sm w-52"
     );
   }
   if (disabled) computedClasses.push("cursor-not-allowed");
   if (outline) {
     if (variant === "primary") {
-      computedClasses.push("!bg-white border border-primary text-primary");
+      computedClasses.push(
+        "!bg-[#ffffff] border border-[#F6B319] text-[#F6B319]"
+      );
     }
     if (variant === "secondary") {
       computedClasses.push(
-        "!bg-white border border-darkGrey border-opacity-[24%] text-darkGrey text-opacity-[24%]"
+        "!bg-[#ffffff] border border-[#181818] border-opacity-[24%] text-[#181818] text-opacity-[24%]"
       );
     }
   }
