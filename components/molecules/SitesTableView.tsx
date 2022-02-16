@@ -46,7 +46,7 @@ const SitesTableView = () => {
             element: (
               <button
                 type="button"
-                className="bg-[#ffffff] border border-[#181818] border-opacity-[24%] text-[#181818] text-opacity-[24%] py-2 px-6 rounded"
+                className="bg-[#ffffff] border border-darkGrey border-opacity-[24%] text-darkGrey text-opacity-[24%] py-2 px-6 rounded"
               >
                 Delete
               </button>
@@ -57,7 +57,7 @@ const SitesTableView = () => {
             element: (
               <button
                 type="button"
-                className="bg-[#ffffff] border border-[#F6B319] text-[#F6B319] py-2 px-6 rounded"
+                className="bg-[#ffffff] border border-primary text-primary py-2 px-6 rounded"
               >
                 Edit
               </button>
