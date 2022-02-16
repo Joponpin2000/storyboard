@@ -4,8 +4,9 @@ import BinIcon from "../atoms/vectors/BinIcon";
 import Modal from "../molecules/Modal";
 interface PropTypes {
   close: Function;
+  onClick: Function;
 }
-const DeleteSiteModal = ({ close = () => {} }: PropTypes) => {
+const DeleteSiteModal = ({ close = () => {}, onClick = () => {} }: PropTypes) => {
   return (
     <Modal width="w-96" close={close} showCloseBtn={false}>
       <div>

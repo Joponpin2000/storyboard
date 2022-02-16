@@ -15,8 +15,10 @@ const SitesTableView = () => {
 
     admin: "Adelowomi Issac",
     creation: "02/05/2021 5:29pm",
+    _id: Math.random().toString(),
   });
   const [selectedRow, setSelectedRow] = useState(null);
+  const [selectedSites, setSelectedSites] = useState<any[]>([]);
   type modalTypes = "delete" | "edit";
   const [modal, setModal] = useState<{ type: modalTypes; open: boolean }>({
     type: "edit",
@@ -42,23 +44,32 @@ const SitesTableView = () => {
           {
             key: "delete",
             element: (
-              <Button
-                text="Delete"
-                size="small"
-                variant="secondary"
-                outline={true}
-              />
+              <button
+                type="button"
+                className="bg-[#ffffff] border border-[#181818] border-opacity-[24%] text-[#181818] text-opacity-[24%] py-2 px-6 rounded"
+              >
+                Delete
+              </button>
             ),
           },
           {
             key: "edit",
-            element: <Button text="Edit" size="small" outline />,
+            element: (
+              <button
+                type="button"
+                className="bg-[#ffffff] border border-[#F6B319] text-[#F6B319] py-2 px-6 rounded"
+              >
+                Edit
+              </button>
+            ),
           },
         ]}
         id="My-Sites"
+        selected={selectedSites}
+        onSelect={(selectedIds: any) => setSelectedSites(selectedIds)}
       />
       {modal.type === "delete" && modal.open && (
-        <DeleteSiteModal close={() => setModal({ ...modal, open: false })} />
+        <DeleteSiteModal close={() => setModal({ ...modal, open: false })} onClick />
       )}
       {modal.type === "edit" && modal.open && (
         <EditSiteModal close={() => setModal({ ...modal, open: false })} />

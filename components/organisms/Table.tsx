@@ -16,7 +16,7 @@ interface PropTypes {
     element: ReactElement | ((row: any) => ReactElement);
     key: string;
   }[];
-  selected?: Array<string>;
+  selected?: Array<number>;
   onSelect?: Function;
   selectKey?: string;
 }
@@ -38,6 +38,11 @@ const Table = ({
     else onSelect([]);
   };
 
+  const toggleSelect = (id: number) => {
+    if (selected.length !== tableData.length)
+      onSelect(tableData.map((row: any, rowIndex) => rowIndex));
+    else onSelect([]);
+  };
   return (
     <div className="w-full p-8 bg-white pb-0 flex-grow h-full overflow-y-auto flex flex-col">
       <div className="flex-grow overflow-y-hidden flex flex-col">
@@ -47,9 +52,7 @@ const Table = ({
               <th className="w-28">
                 <CheckBox
                   onChange={(value: boolean) => toggleSelectAll(value)}
-                  value={
-                    tableData.length > 1 && selected.length === tableData.length
-                  }
+                  value={selected.length === tableData.length ? true : false}
                 />
               </th>
               {headings.map((heading, headingIndex) => (
@@ -72,19 +75,8 @@ const Table = ({
                 >
                   <td className="w-28">
                     <CheckBox
-                      value={selected.indexOf(row[selectKey]) !== -1}
-                      // value={row.id || row._id || rowIndex}
-                      onChange={(value: boolean) => {
-                        let ids: string[] = [];
-                        if (!value) {
-                          ids = selected.concat(row[selectKey]);
-                        } else {
-                          const ids = selected.filter(
-                            (id: string) => id !== row[selectKey]
-                          );
-                        }
-                        onSelect(ids);
-                      }}
+                      value={selected.includes(rowIndex) ? true : false}
+                      onChange={() => toggleSelect(rowIndex)}
                     />
                   </td>
                   {headings.map((col, colIndex) => (
