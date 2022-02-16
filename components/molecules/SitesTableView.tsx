@@ -8,7 +8,11 @@ interface PropTypes {
   setTableData: Function;
   tableHeadings: any;
 }
-const SitesTableView = ({tableData, setTableData, tableHeadings}: PropTypes) => {
+const SitesTableView = ({
+  tableData,
+  setTableData,
+  tableHeadings,
+}: PropTypes) => {
   const [selectedRow, setSelectedRow] = useState(null);
   const [selectedSites, setSelectedSites] = useState<any[]>([]);
   type modalTypes = "delete" | "edit";
@@ -73,7 +77,12 @@ const SitesTableView = ({tableData, setTableData, tableHeadings}: PropTypes) => 
         />
       )}
       {modal.type === "edit" && modal.open && (
-        <EditSiteModal close={() => setModal({ ...modal, open: false })} />
+        <EditSiteModal
+          site={selectedRow}
+          close={() => setModal({ ...modal, open: false })}
+          {...{ tableData }}
+          {...{ setTableData }}
+        />
       )}
     </>
   );
