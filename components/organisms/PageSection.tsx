@@ -13,7 +13,7 @@ const PageSection = () => {
     { name: "Creation Date & Time", key: "creation" },
   ];
   const [tableData, setTableData] = useState<any[]>(
-    Array(2)
+    Array(1)
       .fill({
         siteName: "Qualtrak",
         admin: "Adelowomi Issac",
