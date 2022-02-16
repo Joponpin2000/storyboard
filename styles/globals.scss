@@ -11,7 +11,7 @@ body {
   @apply relative h-screen w-screen overflow-hidden flex flex-col;
 
   .HeaderNav {
-    @apply py-[25px] px-[45px] bg-white flex items-center justify-between;
+    @apply py-[25px] px-[45px] bg-white flex items-center justify-between overflow-x-hidden;
 
     .info-side {
       @apply flex items-center;
