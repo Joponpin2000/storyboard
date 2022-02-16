@@ -10,7 +10,7 @@ interface PropTypes {
 }
 const AddSiteModal = ({ close = () => {} }: PropTypes) => {
   return (
-    <Modal width="w-[37rem]" close={close}>
+    <Modal close={close}>
       <div className="mt-3">
         <div>
           <h3 className="font-semibold text-2xl text-dark mb-8">
