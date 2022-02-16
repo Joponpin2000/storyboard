@@ -1,4 +1,4 @@
-import HeaderNav from "../components/organisms/HeaderNav";
+import HeaderNav from "../components/organisms/HeaderNavbar";
 import PageSection from "../components/organisms/PageSection";
 
 const IndexPage = () => {
