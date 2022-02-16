@@ -46,7 +46,7 @@ const SitesTableView = () => {
             element: (
               <button
                 type="button"
-                className="bg-[#ffffff] border border-dark border-opacity-[24%] text-darplk text-opacity-[24%] py-2 px-6 rounded"
+                className="bg-[#ffffff] border border-darkGrey border-opacity-[24%] text-darkGrey text-opacity-[24%] py-2 px-6 rounded"
               >
                 Delete
               </button>
