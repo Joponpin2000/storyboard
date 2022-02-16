@@ -98,6 +98,14 @@ body {
     @apply fixed z-50 w-full h-full flex flex-col justify-center items-center inset-0 bg-dark bg-opacity-[52%];
     // right: calc(50% - 14.4rem);
     // top: calc(50% - 8rem);
+
+    .inner {
+      @apply w-[25rem];
+    }
+  }
+
+  .SearchInput {
+    @apply w-[20rem];
   }
 }
 
