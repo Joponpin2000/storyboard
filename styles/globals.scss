@@ -4,6 +4,20 @@
 @tailwind components;
 @import "/fonts/fellix/fellix-font.css";
 
+@font-face {
+  font-family: "Fellix";
+  src: url("/fonts/fellix/fellix-font.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fellix";
+  src: url("/fonts/fellix/fellix-font.ttf");
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+}
 body {
   @apply bg-[#F9F9F9] overflow-hidden h-screen w-screen;
   font-family: "Fellix", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
